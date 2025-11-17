@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>APA ITU INDOBERT</pattern>
+    <template>
+        IndoBERT adalah model pra-latih berbasis BERT yang dikembangkan khusus untuk bahasa Indonesia. 
+        Model ini dilatih pada 220 juta kalimat berbahasa Indonesia menggunakan teknik transfer learning, 
+        dan efektif untuk berbagai tugas NLP seperti klasifikasi teks dan deteksi hoaks.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA ITU FINE TUNING</pattern>
+    <template>
+        Fine-tuning adalah proses melatih ulang model yang sudah pra-dilatih (seperti IndoBERT) 
+        pada tugas spesifik—misalnya, klasifikasi hoaks—dengan menambahkan lapisan klasifikasi 
+        (biasanya di atas token [CLS]) dan menyesuaikan bobotnya menggunakan dataset target.
+    </template>
+  </category>
+
+  <category>
+    <pattern>UNTUK APA PENELITIAN INI DILAKUKAN</pattern>
+    <template>
+        Penelitian ini bertujuan untuk: 
+        (1) mengevaluasi kinerja IndoBERT murni yang di-fine-tune dalam klasifikasi hoaks berbahasa Indonesia 
+        berdasarkan akurasi, F1-score, dan ROC-AUC; 
+        (2) menilai stabilitas dan generalisasi model; 
+        (3) menetapkan tolak ukur (baseline) untuk perbandingan pengembangan model di masa depan.
+    </template>
+  </category>
+
+  <category>
+    <pattern>DARI MANA DATA PENELITIAN INI</pattern>
+    <template>
+        Data hoaks diambil dari TurnBackHoax.ID, sedangkan data berita faktual dikumpulkan dari CNN Indonesia, 
+        mengikuti metodologi yang digunakan oleh Wijaya et al. dalam penelitian sebelumnya.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MODEL APA YANG DIGUNAKAN</pattern>
+    <template>
+        Model dasar yang digunakan adalah IndoBERT (base, uncased), versi pra-latih dari F. Koto et al. 
+        Proses fine-tuning dilakukan dengan menambahkan lapisan klasifikasi biner pada representasi token [CLS].
+    </template>
+  </category>
+
+  <category>
+    <pattern>OPTIMIZER APA YANG DIGUNAKAN</pattern>
+    <template>
+        Optimizer yang digunakan adalah AdamW, dengan learning rate dan batch size dioptimalkan melalui validasi silang.
+    </template>
+  </category>
+
+  <category>
+    <pattern>METRIK EVALUASI APA SAJA</pattern>
+    <template>
+        Karena dataset hoaks tidak seimbang, evaluasi tidak hanya mengandalkan akurasi, 
+        tetapi juga F1-score dan ROC-AUC—metrik yang lebih andal untuk data imbalanced.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA TEMUAN UTAMA PENELITIAN INI</pattern>
+    <template>
+        Penelitian ini memberikan analisis empiris kinerja IndoBERT murni tanpa modifikasi arsitektur (seperti BiLSTM). 
+        Hasilnya menjadi baseline penting: 
+        - Jika model modifikasi (misal IndoBERT-CC) jauh lebih baik, maka kompleksitas tambahan mungkin layak; 
+        - jika tidak, fine-tuning standar sudah cukup efektif dan lebih efisien.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA ITU INDOBERT CC</pattern>
+    <template>
+        IndoBERT-CC adalah model gabungan IndoBERT dan BiLSTM yang dikembangkan oleh Wijaya et al. 
+        Model ini mencapai performa luar biasa: ROC-AUC 0,999 dan F1-score 0,988—tapi dengan kompleksitas komputasi yang lebih tinggi.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA ITU FOCAL LOSS</pattern>
+    <template>
+        Focal loss adalah fungsi loss yang dirancang untuk menangani ketidakseimbangan kelas (class imbalance). 
+        Penelitian oleh Kunaefi et al. dan Hanum et al. menunjukkan focal loss meningkatkan F1-score 
+        pada klasifikasi hoaks berbahasa Indonesia.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MENGAPA HOAKS SULIT DIDETEKSI</pattern>
+    <template>
+        Hoaks sering dibuat sengaja untuk menyesatkan, menggunakan struktur bahasa tidak rapi 
+        dan diksi bernuansa emosional—terutama dalam konteks politik. 
+        Penyebarannya sangat cepat di media sosial, sehingga verifikasi manual tidak lagi memadai.
+    </template>
+  </category>
+
+  <category>
+    <pattern>SIAPA PENULIS PENELITIAN INI</pattern>
+    <template>
+        Penelitian ini ditulis oleh Rafael Evaldo Setianto, Firzi Ilham Bagusti, dan Alfian Indrajaya, 
+        dari Program Studi Teknik Informatika, Universitas Tarumanagara, Jakarta.
+    </template>
+  </category>
+
+  <!-- fallback pattern -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+        <random>
+            <li>Maaf, pertanyaanmu mungkin di luar cakupan paper ini. Coba tanyakan tentang IndoBERT, hoaks, atau NLP.</li>
+            <li>Topik paper ini adalah analisis IndoBERT untuk deteksi hoaks. Pertanyaan seperti "apa itu fine-tuning?" akan aku jawab!</li>
+            <li>Aku fokus pada isi paper UTS NLP Kelompok 4. Mau tanya tentang metode, data, atau hasil penelitiannya?</li>
+        </random>
+    </template>
+  </category>
+</aiml>
